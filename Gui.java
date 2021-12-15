@@ -84,6 +84,9 @@ public class Gui extends JFrame {
 		JButton btnNewButton_1_1_1_1_1_Sair = new JButton("Sair");
 		contentPane.add(btnNewButton_1_1_1_1_1_Sair);
 
+    JButton btnNewButton = new JButton("Novo Jogador");
+		contentPane.add(btnNewButton);
+
     btnNewButton_1.addActionListener((ActionListener) new ActionListener(){
       String input4Content;
 
@@ -144,10 +147,6 @@ public class Gui extends JFrame {
       }
     });
 
-		JButton btnNewButton = new JButton("Novo Jogador");
-		btnNewButton.setBounds(52, 69, 122, 23);
-		contentPane.add(btnNewButton);
-
     btnNewButton_1_1_1_1_Jogar.addActionListener((ActionListener) new ActionListener(){
       String input0Content;
       String input1Content;
@@ -155,10 +154,15 @@ public class Gui extends JFrame {
       String input3Content;
 
 			public void actionPerformed(ActionEvent event) {
-        input0Content = textField1.getText().toString();
-        input1Content = textField2.getText().toString();
-        input2Content = textField3.getText().toString();
-        input3Content = textField4.getText().toString();
+        // input0Content = textField1.getText().toString();
+        // input1Content = textField2.getText().toString();
+        // input2Content = textField3.getText().toString();
+        // input3Content = textField4.getText().toString();
+
+        input0Content = "Nova Partida";
+        input1Content = "2021/12/15";
+        input2Content = "Mateus Brito";
+        input3Content = "Britinho";
 
         main.inputNomePartida = input0Content;
         main.inputDataPartida = input1Content;
@@ -166,6 +170,9 @@ public class Gui extends JFrame {
         main.inputApelidoJogador = input3Content;
 
         main.setInputsJogadores();
+        main.setNovosJogadores();
+        main.setNovaPartida();
+        main.setIniciarPartida();
 
         contentPane.removeAll();
         contentPane.revalidate();

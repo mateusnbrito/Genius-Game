@@ -32,6 +32,7 @@ public class Main {
   public boolean rodadaFinalizada = false;
 
   Jogo novoJogo;
+  Partida novaPartida;
 
   public void setInputsJogadores(){
     inputPartida = new InputPartida(inputNomePartida, inputDataPartida, Integer.parseInt(inputDificuldadePartida), Integer.parseInt(inputVelocidadePartida));
@@ -47,7 +48,7 @@ public class Main {
   }
 
   public void setNovaPartida(){
-    Partida novaPartida = new Partida(0, inputPartida.getValidadoNome(), inputPartida.getValidadoData(), novosJogadores, new Rodada(0, inputPartida.getValidadoDificuldade(), inputPartida.getValidadoVelocidade()));
+    novaPartida = new Partida(0, inputPartida.getValidadoNome(), inputPartida.getValidadoData(), novosJogadores, new Rodada(0, inputPartida.getValidadoDificuldade(), inputPartida.getValidadoVelocidade()));
     novoJogo = new Jogo(novaPartida);
   }
 
@@ -107,6 +108,8 @@ public class Main {
         }
 
         System.out.println("\n");
+
+        //Criar função para jogar
 
         System.out.println("\n"+atualPartida.getJogadorDaVez().getApelido()+", insira o botão desejado (1 a 9):\n");
         // inputBotaoSelecionado = scanner.nextLine();
