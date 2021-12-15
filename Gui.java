@@ -102,6 +102,68 @@ public class Gui extends JFrame {
     Button button_2 = new Button("Gerar Relatorio");
     Button button_2_1 = new Button("Finalizar Jogo");
 
+    button.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){
+        main.inputBotaoSelecionado = "0";
+      }
+    });
+
+    button_1.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){
+        main.inputBotaoSelecionado = "1";
+      }
+    });
+
+    button_1_1.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){
+        main.inputBotaoSelecionado = "2";
+      }
+    });
+
+    button_1_2.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){
+        main.inputBotaoSelecionado = "3";
+      }
+    });
+
+    button_1_3.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){
+        main.inputBotaoSelecionado = "4";
+      }
+    });
+
+    button_1_4.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){
+        main.inputBotaoSelecionado = "5";
+      }
+    });
+
+    button_1_5.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){
+        main.inputBotaoSelecionado = "6";
+      }
+    });
+
+    button_1_6.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){
+        main.inputBotaoSelecionado = "7";
+      }
+    });
+
+    button_1_7.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){
+        main.inputBotaoSelecionado = "8";
+      }
+    });
+
+    button_2.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){}
+    });
+
+    button_2_1.addActionListener((ActionListener) new ActionListener(){
+      public void actionPerformed(ActionEvent event){}
+    });
+
     btnNewButton_1.addActionListener((ActionListener) new ActionListener(){
       String input4Content;
 
@@ -245,8 +307,6 @@ public class Gui extends JFrame {
         };
 
         Jogo.start();
-
-        System.out.println("After");
 			}
 		});
 
@@ -278,7 +338,12 @@ public class Gui extends JFrame {
         main.setImprimirSequencia(atualRodada);
 
         System.out.println("\n"+atualPartida.getJogadorDaVez().getApelido()+", insira o botão desejado (1 a 9):\n");
-        main.inputApelidoJogador = scanner.nextLine();
+
+        if(main.inputBotaoSelecionado != null){
+          System.out.println("Novo valor! "+main.inputBotaoSelecionado);
+        }
+
+        System.out.println("Rodando...");
         // main.getValorDaJogada();
         // System.out.println("\n");
 

@@ -99,13 +99,9 @@ public class Main {
   public void setImprimirSequencia(Rodada _atualRodada){
     //Botões da Sequência
     for(int j=0; j<(_atualRodada.getSequencia()).length; j++){
-      System.out.println((_atualRodada.getSequencia()[j])+1);
+      System.out.println("Sequência: "+(_atualRodada.getSequencia()[j]+1));
     }
 
     System.out.println("\n");
-  }
-
-  public void getValorDaJogada(){
-    inputBotaoSelecionado = scanner.nextLine();
   }
 }
