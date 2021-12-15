@@ -16,13 +16,29 @@ public class Gui extends JFrame {
 	private JTextField inputFieldDataPartida;
   private JTextField inputFieldNomeJogador;
   private JTextField inputFieldApelidoJogador;
-
+  
   Main main = new Main();
   Scanner scanner = new Scanner(System.in);
+  
+  JPanel contentPane = new JPanel();
+
+  Button botaoTabuleiro1 = new Button("");
+  Button botaoTabuleiro2 = new Button("");
+  Button botaoTabuleiro3 = new Button("");
+  Button botaoTabuleiro4 = new Button("");
+  Button botaoTabuleiro5 = new Button("");
+  Button botaoTabuleiro6 = new Button("");
+  Button botaoTabuleiro7 = new Button("");
+  Button botaoTabuleiro8 = new Button("");
+  Button botaoTabuleiro9 = new Button("");
+  Button botaoTabuleiroRelatorio = new Button("Gerar Relatorio");
+  Button botaoTabuleiroFinalizar = new Button("Finalizar Jogo");
+
+  Button[] botoesTabuleiro = {botaoTabuleiro1, botaoTabuleiro2, botaoTabuleiro3, botaoTabuleiro4, botaoTabuleiro5, botaoTabuleiro6, botaoTabuleiro7, botaoTabuleiro8, botaoTabuleiro9};
+  Color[] coresEscuras = {new Color(0, 0, 153), new Color(255, 204 ,0), new Color(255, 102, 0), new Color(153, 0, 0), new Color(0, 102, 0), new Color(255, 20, 147), new Color(85, 26, 139), new Color(84, 84, 84), new Color(0, 0, 0)};
+  Color[] coresClaras = {new Color(173, 216, 230), new Color(255, 255, 0), new Color(255, 127, 0), new Color(255, 0, 0), new Color(0, 255, 0), new Color(178, 58, 238), new Color(255, 110, 199), new Color(211, 211, 211), new Color(84, 84, 84)};
 
 	public Gui() {
-		JPanel contentPane = new JPanel();
-
 		setContentPane(contentPane);
     contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.PAGE_AXIS));
 
@@ -86,18 +102,6 @@ public class Gui extends JFrame {
 
 		JButton botaoFinalizarJogo = new JButton("Sair");
 		contentPane.add(botaoFinalizarJogo);
-
-    Button botaoTabuleiro1 = new Button("");
-    Button botaoTabuleiro2 = new Button("");
-    Button botaoTabuleiro3 = new Button("");
-    Button botaoTabuleiro4 = new Button("");
-    Button botaoTabuleiro5 = new Button("");
-    Button botaoTabuleiro6 = new Button("");
-    Button botaoTabuleiro7 = new Button("");
-    Button botaoTabuleiro8 = new Button("");
-    Button botaoTabuleiro9 = new Button("");
-    Button botaoTabuleiroRelatorio = new Button("Gerar Relatorio");
-    Button botaoTabuleiroFinalizar = new Button("Finalizar Jogo");
 
     botaoTabuleiro1.addActionListener((ActionListener) new ActionListener(){
       public void actionPerformed(ActionEvent event){
@@ -252,49 +256,40 @@ public class Gui extends JFrame {
         contentPane.repaint();
         contentPane.setLayout(null);
 
-        botaoTabuleiro1.setBackground(new Color(0, 0, 153));
-        // botaoTabuleiro1.setBackground(new Color(173, 216, 230));
+        botaoTabuleiro1.setBackground(coresEscuras[0]);
         botaoTabuleiro1.setBounds(40, 45, 91, 38);
         add(botaoTabuleiro1);
 
-        botaoTabuleiro2.setBackground(new Color(255, 204 ,0));
-        // botaoTabuleiro2.setBackground(new Color(173, 216, 230));
+        botaoTabuleiro2.setBackground(coresEscuras[1]);
         botaoTabuleiro2.setBounds(172, 45, 91, 38);
         add(botaoTabuleiro2);
 
-        botaoTabuleiro3.setBackground(new Color(255, 102, 0));
-        // botaoTabuleiro3.setBackground(new Color(255, 0, 0));
+        botaoTabuleiro3.setBackground(coresEscuras[2]);
         botaoTabuleiro3.setBounds(293, 45, 91, 38);
         add(botaoTabuleiro3);
 
-        botaoTabuleiro4.setBackground(new Color(153, 0, 0));
-        // botaoTabuleiro4.setBackground(new Color(255, 0, 0));
+        botaoTabuleiro4.setBackground(coresEscuras[3]);
         botaoTabuleiro4.setBounds(40, 115, 91, 38);
         add(botaoTabuleiro4);
 
-        botaoTabuleiro5.setBackground(new Color(0, 102, 0));
-        // botaoTabuleiro5.setBackground(new Color(0, 255, 0));
+        botaoTabuleiro5.setBackground(coresEscuras[4]);
         botaoTabuleiro5.setActionCommand("");
         botaoTabuleiro5.setBounds(172, 115, 91, 38);
         add(botaoTabuleiro5);
 
-        botaoTabuleiro6.setBackground(new Color(255, 20, 147));
-        // botaoTabuleiro6.setBackground(new Color(178, 58, 238));
+        botaoTabuleiro6.setBackground(coresEscuras[5]);
         botaoTabuleiro6.setBounds(293, 115, 91, 38);
         add(botaoTabuleiro6);
 
-        botaoTabuleiro7.setBackground(new Color(85, 26, 139));
-        // botaoTabuleiro7.setBackground(new Color(255, 110, 199));
+        botaoTabuleiro7.setBackground(coresEscuras[6]);
         botaoTabuleiro7.setBounds(40, 185, 91, 38);
         add(botaoTabuleiro7);
 
-        botaoTabuleiro8.setBackground(new Color(84, 84, 84));
-        // botaoTabuleiro8.setBackground(new Color(211, 211, 211));
+        botaoTabuleiro8.setBackground(coresEscuras[7]);
         botaoTabuleiro8.setBounds(172, 185, 91, 38);
         add(botaoTabuleiro8);
 
-        botaoTabuleiro9.setBackground(new Color(0, 0, 0));
-        // botaoTabuleiro9.setBackground(new Color(84, 84, 84));
+        botaoTabuleiro9.setBackground(coresEscuras[8]);
         botaoTabuleiro9.setBounds(293, 185, 91, 38);
         add(botaoTabuleiro9);
 
@@ -341,11 +336,40 @@ public class Gui extends JFrame {
         main.setImprimirTabuleiro();
         main.setImprimirSequencia(atualRodada);
 
+        for(int i=0; i<(main.novoJogo.getBotoes()).length; i++){
+          Botao auxBotao = main.novoJogo.getBotoes()[i];
+
+          if(auxBotao.getEstaLigado()){
+            System.out.println(auxBotao.id);
+
+            // botoesTabuleiro[auxBotao.id].setBackground(new Color(255, 255, 255));
+            botoesTabuleiro[auxBotao.id].setBackground(coresClaras[auxBotao.id]);
+
+            contentPane.repaint();
+
+            try {
+              Thread.sleep(1000);
+            } catch (Exception e) {
+              System.out.println(e);
+            }
+
+            botoesTabuleiro[auxBotao.id].setBackground(coresEscuras[auxBotao.id]);
+            contentPane.repaint();
+
+            try {
+              Thread.sleep(1000);
+            } catch (Exception e) {
+              System.out.println(e);
+            }
+          }
+        }
+
         System.out.println("\n"+atualPartida.getJogadorDaVez().getApelido()+", insira o botão desejado (1 a 9):\n");
 
         if(main.inputBotaoSelecionado != null){
           System.out.println("Novo valor! "+main.inputBotaoSelecionado);
         }
+
         // main.getValorDaJogada();
         // System.out.println("\n");
 

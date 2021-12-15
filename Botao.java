@@ -4,7 +4,7 @@ public class Botao {
 
   private boolean foiAtivado;
   private boolean foiPressionado;
-  public boolean estaLigado;
+  public boolean estaLigado = false;
 
   Botao(int _id, String _cor){
     this.id = _id;
@@ -16,19 +16,13 @@ public class Botao {
   }
 
   public void setFoiAtivado(boolean _foiAtivado, int _velocidade){
-    this.estaLigado = true;
-
-    while(this.estaLigado){
-      try {
-        Thread.sleep(_velocidade);
-      } catch (Exception e) {
-        System.out.println(e);
-      }
-
-      this.estaLigado = false;
-    }
+    setEstaLigado(true);
 
     this.foiAtivado = _foiAtivado;
+  }
+
+  public void setEstaLigado(boolean _valor){
+    this.estaLigado = _valor;
   }
 
   public boolean getFoiPressionado(){
